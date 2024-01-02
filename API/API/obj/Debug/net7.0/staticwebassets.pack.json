@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\A1.jpg",
+      "PackagePath": "staticwebassets\\images\\A1.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\HP1.jpg",
+      "PackagePath": "staticwebassets\\images\\HP1.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\HP2.jpg",
+      "PackagePath": "staticwebassets\\images\\HP2.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\HP3.jpg",
+      "PackagePath": "staticwebassets\\images\\HP3.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\Huawei.jpg",
+      "PackagePath": "staticwebassets\\images\\Huawei.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\SamsungA24.jpg",
+      "PackagePath": "staticwebassets\\images\\SamsungA24.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\dell.jpg",
+      "PackagePath": "staticwebassets\\images\\dell.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\iPhone11.jpg",
+      "PackagePath": "staticwebassets\\images\\iPhone11.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\iPhone13.jpg",
+      "PackagePath": "staticwebassets\\images\\iPhone13.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\iPhone14Pro.jpg",
+      "PackagePath": "staticwebassets\\images\\iPhone14Pro.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.API.props",
+      "PackagePath": "build\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.API.props",
+      "PackagePath": "buildMultiTargeting\\API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.API.props",
+      "PackagePath": "buildTransitive\\API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

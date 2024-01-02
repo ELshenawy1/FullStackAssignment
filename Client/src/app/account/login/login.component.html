@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mb-5">
+                <h1 class="mb-3">Login</h1>
+            </div>
+
+            <div class="alert alert-dismissible alert-danger" *ngIf="invalidEmailAndPassword">
+                <button type="button" class="btn-close"></button>
+                <strong><i class="fa-solid fa-circle-exclamation"></i>
+                    <i class="fa fa-exclamation-circle me-1"></i> Invalid email and password!</strong>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input  formControlName="email" [class.is-invalid]="(getEmail.hasError('required')||getEmail.hasError('email')) && getEmail.touched"
+                    type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" />
+                <label for="floatingEmail">Email Address</label>
+                <ng-container *ngIf="getEmail.touched">
+                    <span class="text-danger" *ngIf="getEmail.hasError('required')">Email is
+                        required</span>
+                        <span class="text-danger" *ngIf="getEmail.hasError('email')">Invalid Email</span>
+                </ng-container>
+                
+            </div>
+
+            <div class="form-floating">
+                <input 
+                    [class.is-invalid]="getPassword.hasError('required') && getPassword.touched"
+                    formControlName="password" type="password" class="form-control" id="floatingPassword"
+                    placeholder="Password" />
+                <label for="floatingPassword">Password</label>
+                <span class="text-danger" *ngIf="getPassword.hasError('required') && getPassword.touched" class="text-danger" >Password is
+                    required</span>
+            </div>
+
+            <div class="d-grid">
+                <button [disabled]="loginForm.status == 'INVALID'" class="btn btn-lg btn-primary mt-3" type="submit">
+                    Sign In
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

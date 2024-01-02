@@ -1,0 +1,52 @@
+<form class="container" [formGroup]="productForm"  (submit)="formOperation($event)" >
+    <div class="mb-3">
+        <label for="productCode" class="form-label">Proudct Code</label>
+        <input type="text" class="form-control" id="productCode" placeholder="Product Code" formControlName="productCode">
+        <span class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Proudct Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Product Name" formControlName="name">
+        <span class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label for="price" class="form-label">Product Price</label>
+        <input type="number" class="form-control" id="price" placeholder="Product Price" formControlName="price">
+        <span class="text-danger"></span>
+
+    </div>
+    
+    <div class="mb-3">
+        <label for="category" class="form-label">Product Category</label>
+        <input type="text"  class="form-control" id="category" placeholder="Product Category"  formControlName="category">
+        <span class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label for="minQuantity" class="form-label">Minimum Quantity</label>
+        <input type="number" class="form-control" id="minQuantity" placeholder="Minimum Quantity"  formControlName="minQuantity">
+        <span class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label for="discountRate" class="form-label">Discount Rate</label>
+        <input type="nubmer" class="form-control" id="discountRate" placeholder="Discount Rate"  formControlName="discountRate">
+        <span class="text-danger"></span>
+
+    </div>
+    
+    <div class="mb-3">
+        <label for="img" class="form-label">Product Image</label>
+        <input type="file" (change)="onFileSelected($event)" class="form-control" id="img" placeholder="Product Image" formControlName="img">
+        <span class="text-danger"></span>
+
+    </div>
+    <!-- <p>{{productform.value|json}}</p> -->
+    <input type="submit" class="btn btn-success"/>
+</form>
+
+
+    
+    

@@ -1,0 +1,94 @@
+[
+  {
+    "Category": "Mobile",
+    "ProductCode": "M1",
+    "Name": "Apple iPhone 13",
+    "Img": "iPhone13.jpg",
+    "Price": 29000,
+    "MinQuantity": 5,
+    "DiscountRate": 30
+  },
+  {
+    "Category": "Mobile",
+    "ProductCode": "M2",
+    "Name": "Apple iPhone 11",
+    "Img": "iPhone11.jpg",
+    "Price": 25000,
+    "MinQuantity": 5,
+    "DiscountRate": 30
+  },
+  {
+    "Category": "Mobile",
+    "ProductCode": "M3",
+    "Name": "Apple iPhone 14 Pro",
+    "Img": "iPhone14Pro.jpg",
+    "Price": 60000,
+    "MinQuantity": 5,
+    "DiscountRate": 50
+  },
+  {
+    "Category": "Mobile",
+    "ProductCode": "M4",
+    "Name": "Samsung Galaxy A24",
+    "Img": "SamsungA24.jpg",
+    "Price": 8000,
+    "MinQuantity": 5,
+    "DiscountRate": 10
+  },
+  {
+    "Category": "Laptop",
+    "ProductCode": "L1",
+    "Name": "HP LAPTOP-HP-Probook X360",
+    "Img": "HP1.jpg",
+    "Price": 31000,
+    "MinQuantity": 3,
+    "DiscountRate": 25
+  },
+  {
+    "Category": "Laptop",
+    "ProductCode": "L2",
+    "Name": "HP HP Probook 450 G9",
+    "Img": "HP2.jpg",
+    "Price": 50000,
+    "MinQuantity": 3,
+    "DiscountRate": 40
+  },
+  {
+    "Category": "Laptop",
+    "ProductCode": "L3",
+    "Name": "Huawei MateBook B3",
+    "Img": "Huawei.jpg",
+    "Price": 3200,
+    "MinQuantity": 3,
+    "DiscountRate": 15
+  },
+  {
+    "Category": "Laptop",
+    "ProductCode": "L4",
+    "Name": "DELL Lptop Dell 15-5515",
+    "Img": "dell.jpg",
+    "Price": 38000,
+    "MinQuantity": 3,
+    "DiscountRate": 10
+  },
+  {
+    "Category": "Laptop",
+    "ProductCode": "L5",
+    "Name": "HP VICTUS 15-FA0031DX",
+    "Img": "HP3.jpg",
+    "Price": 35000,
+    "MinQuantity": 3,
+    "DiscountRate": 60
+  },
+  {
+    "Category": "Accessories",
+    "ProductCode": "A1",
+    "Name": "Pzx Metal Power Bank - 20000 MAh",
+    "Img": "A1.jpg",
+    "Price": 500,
+    "MinQuantity": 10,
+    "DiscountRate": 35
+  }
+
+
+]

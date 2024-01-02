@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-3">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mb-5">
+                <h1 class="mb-3">Register</h1>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input  formControlName="name" [class.is-invalid]="(getName.hasError('required')||getName.hasError('minLength')) && getName.touched"
+                    type="name" class="form-control" id="floatingName" placeholder="Name" />
+                <label for="floatingName">User Name</label>
+                <ng-container *ngIf="getName.touched">
+                    <span class="text-danger" *ngIf="getName.hasError('required')">Name is Required</span>
+                        <span class="text-danger" *ngIf="getName.hasError('minLength')">User Name Must Be More Than 3 Characters</span>
+                </ng-container>
+                
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input  formControlName="email" [class.is-invalid]="(getEmail.hasError('required')||getEmail.hasError('email')) && getEmail.touched"
+                    type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" />
+                <label for="floatingEmail">Email Address</label>
+                <ng-container *ngIf="getEmail.touched">
+                    <span class="text-danger" *ngIf="getEmail.hasError('required')">Email is
+                        required</span>
+                        <span class="text-danger" *ngIf="getEmail.hasError('email')">Invalid Email</span>
+                </ng-container>
+                
+            </div>
+
+            <div class="form-floating">
+                <input 
+                    [class.is-invalid]="getPassword.hasError('required') && getPassword.touched"
+                    formControlName="password" type="password" class="form-control" id="floatingPassword"
+                    placeholder="Password" />
+                <label for="floatingPassword">Password</label>
+                <span class="text-danger" *ngIf="getPassword.hasError('required') && getPassword.touched" class="text-danger" >Password is
+                    required</span>
+            </div>
+
+            <div class="d-grid">
+                <button [disabled]="registerForm.status == 'INVALID'" class="btn btn-lg btn-primary mt-3" type="submit">
+                    Sign In
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
