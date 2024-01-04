@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="col-3">
+        <form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
+            <div class="text-center mb-5">
+                <h1 class="mb-3">Update</h1>
+            </div>
+            
+            <div class="form-floating mb-3" hidden>
+                <input  formControlName="email"  [value]="useremail"
+                    type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" />
+                <label for="floatingEmail">Email Address</label>
+                
+            </div>
+
+
+
+            <div class="form-floating mb-3">
+                <input  formControlName="name" [class.is-invalid]="(updateUserForm.get('name')?.hasError('required')||updateUserForm.get('name')?.hasError('minLength')) && updateUserForm.get('name')?.touched"
+                    type="name" class="form-control" id="floatingName" placeholder="Name" />
+                <label for="floatingName">User Name</label>
+                <ng-container *ngIf="updateUserForm.get('name')?.touched">
+                    <span class="text-danger" *ngIf="updateUserForm.get('name')?.hasError('required')">Name is Required</span>
+                        <span class="text-danger" *ngIf="updateUserForm.get('name')?.hasError('minLength')">User Name Must Be More Than 3 Characters</span>
+                </ng-container>
+                
+            </div>
+
+            <div class="d-grid">
+                <button [disabled]="updateUserForm.status == 'INVALID'" class="btn btn-lg btn-primary mt-3" type="submit">
+                    Update
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

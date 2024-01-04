@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center mt-5">
+<div class="d-flex justify-content-center mt-5 mb-5">
     <div class="col-3">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="text-center mb-5">
@@ -42,9 +42,15 @@
 
             <div class="d-grid">
                 <button [disabled]="registerForm.status == 'INVALID'" class="btn btn-lg btn-primary mt-3" type="submit">
-                    Sign In
+                    SIGN UP
                 </button>
             </div>
+            <div class="text-center mt-3 ">
+                <p>
+                    Already have an account? <a routerLink="/login">Sign in</a>
+                </p>
+            </div>
+
         </form>
     </div>
 </div>

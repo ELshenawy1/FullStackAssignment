@@ -14,6 +14,7 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(p => p.ProductCode);
+            builder.Property(p => p.Name).HasMaxLength(100);
         }
     }
 }

@@ -15,21 +15,17 @@ namespace Core.Specifications
 
         {
             ApplyPaging(productParams.PageSize, productParams.PageSize * (productParams.PageIndex - 1));
-            if (!string.IsNullOrEmpty(productParams.Sort))
+            switch (productParams.Sort)
             {
-                switch (productParams.Sort.ToLower())
-                {
-                    case "priceasc":
-                        AddOrderBy(x => x.Price);
-                        break;
-                    case "pricedesc":
-                        AddOrderByDesc(x => x.Price);
-                        break;
-                    default:
-                        AddOrderBy(p => p.Name);
-                        break;
-
-                }
+                case "priceasc":
+                    AddOrderBy(x => x.Price);
+                    break;
+                case "pricedesc":
+                    AddOrderByDesc(x => x.Price);
+                    break;
+                default:
+                    AddOrderBy(p => p.Name);
+                    break;
             }
         }
     }

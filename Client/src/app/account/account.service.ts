@@ -28,6 +28,16 @@ export class AccountService {
 
   }
 
+  RefreshToken(){
+    this.httpClient.get<User>(`${this.baseUrl}/refreshtoken?refreshToken=${localStorage.getItem('refreshToken')}`).subscribe({
+      next:(user)=>{
+        localStorage.setItem('token' , user.token);
+        localStorage.setItem('refreshToken' , user.refreshToken);
+        localStorage.setItem('tokenExpiration' , user.tokenExpiration);
+        this.currentUserSource.next(user);
+      }
+    })
+  }
 
 
   GetCurrentUserSource(){
@@ -35,7 +45,6 @@ export class AccountService {
   }
 
   register(values : any){
-    console.log(values)
     return this.httpClient.post<User>(`${this.baseUrl}/Register`, values).pipe(
       tap(user =>{
         localStorage.setItem('token' , user.token);
@@ -51,8 +60,10 @@ export class AccountService {
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('tokenExpiration');
     this.currentUserSource.next(null);
-    console.log(this.currentUser$)
     this.router.navigate(['/'])
   }
 
+  updateUser(values : any){
+    return this.httpClient.put(this.baseUrl,values);
+  } 
 }

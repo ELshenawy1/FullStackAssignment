@@ -1,21 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Core.Attributes;
+using Core.Settings;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.DTOs
 {
-    public class ProductToAddDTO
+    public class ProductToAddDTO : ProductFormDTO
     {
-        public string Category { get; set; }
-        public string ProductCode { get; set; }
-        public string Name { get; set; }
+        [AllowedExtensions(FileSettings.AllowedExtensions)]
+        [MaxFileSize(FileSettings.MaxFileSizeInBytes)]
         public IFormFile Img { get; set; }
-        public decimal Price { get; set; }
-        public int MinQuantity { get; set; }
-        public int DiscountRate { get; set; }
 
     }
 }

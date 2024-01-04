@@ -14,7 +14,6 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
     this.accountService.currentUser$.subscribe({
       next:user=>{
-        console.log(user)
         if(user)this.currentUser = user;
         else this.currentUser = undefined
       }

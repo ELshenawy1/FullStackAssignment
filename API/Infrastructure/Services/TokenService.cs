@@ -39,13 +39,13 @@ namespace Infrastructure.Services
             };
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
             JwtSecurityToken token = new JwtSecurityToken(issuer: configuration["Token:Issure"],
-                                              expires: DateTime.Now.AddMinutes(30),
+                                              expires: DateTime.Now.AddSeconds(30),
                                               claims: claims,
                                               signingCredentials: credentials);
             userDto.Token = new JwtSecurityTokenHandler().WriteToken(token);
             userDto.TokenExpiration = token.ValidTo;
 
-            //Check if User have any active refresh token
+            //Check if User have any active refresh token (because i use the same method in signin & signup)
             if ( user.RefreshTokens.Any(t => t.IsActive))
             {
                 var activeRefreshToken = user.RefreshTokens.FirstOrDefault(f => f.IsActive);
@@ -60,7 +60,8 @@ namespace Infrastructure.Services
                 user.RefreshTokens.Add(refreshToken);
                 await userManager.UpdateAsync(user);
             }
-
+            userDto.Name = user.UserName;
+            userDto.Email = user.Email;
             return userDto;
         }
 
@@ -78,19 +79,8 @@ namespace Infrastructure.Services
             var refreshToken = user.RefreshTokens.Single(u => u.Token == token);
 
             if (!refreshToken.IsActive) { return null; }
-            //refreshToken.RevokedOn = DateTime.UtcNow;
-            //var newRefreshToken = GenerateRefreshToken();
-            //user.RefreshTokens.Add(newRefreshToken);
-            //await userManager.UpdateAsync(user);
             var jwtToken = await CreateTokenAsync(user);
-            userDto.Token = jwtToken.Token;
-            userDto.Email = user.Email;
-            userDto.Name = user.UserName;
-            userDto.TokenExpiration = jwtToken.TokenExpiration;
-            userDto.RefreshToken = jwtToken.RefreshToken;
-            userDto.RefreshTokenExpiration = jwtToken.RefreshTokenExpiration;
-
-            return userDto;
+            return jwtToken;
         }
 
         private RefreshToken GenerateRefreshToken()

@@ -1,12 +1,12 @@
-<div class="d-flex justify-content-center mt-5">
-    <div class="col-3">
+<div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="col-3 mt-4">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="text-center mb-5">
                 <h1 class="mb-3">Login</h1>
             </div>
 
             <div class="alert alert-dismissible alert-danger" *ngIf="invalidEmailAndPassword">
-                <button type="button" class="btn-close"></button>
+                <button type="button" class="btn-close" (click)="toggle()"></button>
                 <strong><i class="fa-solid fa-circle-exclamation"></i>
                     <i class="fa fa-exclamation-circle me-1"></i> Invalid email and password!</strong>
             </div>
@@ -35,8 +35,13 @@
 
             <div class="d-grid">
                 <button [disabled]="loginForm.status == 'INVALID'" class="btn btn-lg btn-primary mt-3" type="submit">
-                    Sign In
+                    SIGN IN
                 </button>
+            </div>
+            <div class="text-center mt-4 mb-5">
+                <p>
+                    Don't have an account? <a routerLink="/register">Sign up</a>
+                </p>
             </div>
         </form>
     </div>

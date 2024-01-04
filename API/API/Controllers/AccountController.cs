@@ -1,6 +1,7 @@
 ﻿using Core.DTOs;
 using Core.Entities;
 using Core.Interfaces;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -33,15 +34,8 @@ namespace API.Controllers
                 var result = await userManager.CreateAsync(userModel, user.Password);
                 if (result.Succeeded)
                 {
-                    var res = await tokenSerivce.CreateTokenAsync(userModel);
-                    return new UserDTO
-                    {
-                        Email = user.Email,
-                        Name = user.Name,
-                        Token = res.Token,
-                        RefreshToken = res.RefreshToken,
-                        RefreshTokenExpiration = res.RefreshTokenExpiration,    
-                    };
+                    var value = await tokenSerivce.CreateTokenAsync(userModel);
+                    return value;
                 }
                 return BadRequest(result.Errors);
             }
@@ -58,34 +52,12 @@ namespace API.Controllers
                 {
                     user.LastLoginTime = DateTime.Now;
                     await userManager.UpdateAsync(user);
-                    var res = await tokenSerivce.CreateTokenAsync(user);
-                    //if (!string.IsNullOrEmpty(res.RefreshToken))
-                    //{
-                    //    SetRefreshTokenInCookie(res.RefreshToken, res.RefreshTokenExpiration);
-                    //}
-                    return new UserDTO
-                    {
-                        Email = user.Email,
-                        Name = user.UserName,
-                        Token = res.Token,
-                        TokenExpiration = res.TokenExpiration,
-                        RefreshToken = res.RefreshToken,
-                        RefreshTokenExpiration = res.RefreshTokenExpiration
-                        
-                    };
+                    var result = await tokenSerivce.CreateTokenAsync(user);
+                    return result;
                 }
             }
-            return BadRequest("Invalid UserName and Password");
+            return BadRequest("Invalid Username and Password");
         }
-        //private void SetRefreshTokenInCookie(string refreshToken, DateTime expires )
-        //{
-        //    var cookieOptions = new CookieOptions
-        //    {
-        //        HttpOnly = true,
-        //        Expires = expires.ToLocalTime()
-        //    };
-        //    Response.Cookies.Append("refreshToken", refreshToken,cookieOptions);
-        //}
 
 
         [HttpGet("refreshtoken")]
@@ -93,9 +65,28 @@ namespace API.Controllers
         {
             var result = await tokenSerivce.RefreshTokenAsync(refreshToken);
             if(result == null) { return BadRequest(); }
-
-            //SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
             return Ok(result);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string email)
+        {
+            var user = await userManager.FindByEmailAsync(email);
+            if (user is not null) userManager.DeleteAsync(user);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateUserName(UpdateUserNameDTO updatedUser)
+        {
+            var user = await userManager.FindByEmailAsync(updatedUser.Email);
+
+            if (user is not null)
+            {
+                user.UserName = updatedUser.Name;
+                await userManager.UpdateAsync(user);
+            }
+            return Ok();
         }
     }
 }

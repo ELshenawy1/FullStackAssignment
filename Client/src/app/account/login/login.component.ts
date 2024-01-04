@@ -22,6 +22,9 @@ export class LoginComponent {
       error:err => this.invalidEmailAndPassword = true
     })
   }
+  toggle(){
+    this.invalidEmailAndPassword = !this.invalidEmailAndPassword;
+  }
 
   get getEmail(){
     return this.loginForm.controls['email'];

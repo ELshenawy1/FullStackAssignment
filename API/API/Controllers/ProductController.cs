@@ -3,29 +3,36 @@ using AutoMapper;
 using Core.DTOs;
 using Core.Entities;
 using Core.Interfaces;
+using Core.Settings;
 using Core.Specifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.IO;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        private readonly IWebHostEnvironment hostingEnvironment;
+        private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly string imagesPath;
 
 
-        public ProductController(IUnitOfWork _unitOfWork, IMapper _mapper, IWebHostEnvironment _hostingEnvironment)
+        public ProductController(IUnitOfWork _unitOfWork, 
+                                 IMapper _mapper, 
+                                 IWebHostEnvironment _webHostEnvironment)
         {
             unitOfWork = _unitOfWork;
             mapper = _mapper;
-            hostingEnvironment = _hostingEnvironment;
+            webHostEnvironment = _webHostEnvironment;
+            imagesPath = $"{webHostEnvironment.WebRootPath}{FileSettings.ImagesPath}";
         }
         [HttpGet]
         //[Authorize]   
@@ -48,40 +55,45 @@ namespace API.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<Product>> Create([FromForm]ProductToAddDTO productModel)
+        public async Task<ActionResult<Product>> Create ([FromForm] ProductToAddDTO productModel)
         {
             if (ModelState.IsValid)
             {
+                var imgName = productModel.Img.FileName;
+                var path = Path.Combine(imagesPath, imgName);
+
+                using var stream = System.IO.File.Create(path);
+                await productModel.Img.CopyToAsync(stream);
+
                 var product = mapper.Map<ProductToAddDTO, Product>(productModel);
                 unitOfWork.Repository<Product>().Add(product);
                 unitOfWork.Complete();
-
-                // Save the image to the wwwroot/images folder
-                string wwwrootPath = hostingEnvironment.WebRootPath;
-                string imagesFolderPath = Path.Combine(wwwrootPath, "images");
-
-                // Ensure the images folder exists
-                if (!Directory.Exists(imagesFolderPath))
-                {
-                    Directory.CreateDirectory(imagesFolderPath);
-                }
-
-                // Save the image
-                string imagePath = Path.Combine(imagesFolderPath, productModel.Img.FileName);
-
-                using (FileStream fileStream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await productModel.Img.CopyToAsync(fileStream);
-                }
                 return Ok(product);
             }
             return BadRequest();
         }
+
         [HttpPut]
-        public IActionResult Update(Product product)
+        public async Task<IActionResult> Update([FromForm] ProductEditDTO productModel)
         {
             if (ModelState.IsValid)
             {
+                var product = unitOfWork.Repository<Product>().GetByID(productModel.ProductCode);
+                if(productModel.Img is not null)
+                {
+                    var imgName = productModel.Img?.FileName;
+                    var path = Path.Combine(imagesPath, imgName);
+
+                    using var stream = System.IO.File.Create(path);
+                    await productModel.Img.CopyToAsync(stream);
+                    product.Img = productModel.Img.FileName;
+                }
+
+                product.Name = productModel.Name;
+                product.Price = productModel.Price;
+                product.Category = productModel.Category;
+                product.MinQuantity = productModel.MinQuantity;
+                product.DiscountRate = productModel.DiscountRate;
                 unitOfWork.Repository<Product>().Update(product);
                 unitOfWork.Complete();
                 return Ok();

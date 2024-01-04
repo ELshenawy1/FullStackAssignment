@@ -1,44 +1,72 @@
 {
   "Files": [
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\A1.jpg",
-      "PackagePath": "staticwebassets\\images\\A1.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\299092_calendar_icon.png",
+      "PackagePath": "staticwebassets\\assets\\images\\299092_calendar_icon.png"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\HP1.jpg",
-      "PackagePath": "staticwebassets\\images\\HP1.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\9041325_eye_fill_icon.ico",
+      "PackagePath": "staticwebassets\\assets\\images\\9041325_eye_fill_icon.ico"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\HP2.jpg",
-      "PackagePath": "staticwebassets\\images\\HP2.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\A1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\A1.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\HP3.jpg",
-      "PackagePath": "staticwebassets\\images\\HP3.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\Done.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\Done.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\Huawei.jpg",
-      "PackagePath": "staticwebassets\\images\\Huawei.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\HP1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\HP1.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\SamsungA24.jpg",
-      "PackagePath": "staticwebassets\\images\\SamsungA24.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\HP2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\HP2.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\dell.jpg",
-      "PackagePath": "staticwebassets\\images\\dell.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\HP3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\HP3.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\iPhone11.jpg",
-      "PackagePath": "staticwebassets\\images\\iPhone11.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\Huawei.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\Huawei.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\iPhone13.jpg",
-      "PackagePath": "staticwebassets\\images\\iPhone13.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\SamsungA24.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\SamsungA24.jpg"
     },
     {
-      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\images\\iPhone14Pro.jpg",
-      "PackagePath": "staticwebassets\\images\\iPhone14Pro.jpg"
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\dell.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\dell.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\flash.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\flash.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\iPhone11.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\iPhone11.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\iPhone13.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\iPhone13.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\iPhone14Pro.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\iPhone14Pro.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\sm.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\sm.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\testphone.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\testphone.jpg"
+    },
+    {
+      "Id": "F:\\eCommerce_PracitcalTest\\API\\API\\wwwroot\\assets\\images\\wallpaperflare.com_wallpaper (1).jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\wallpaperflare.com_wallpaper (1).jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.API.Microsoft.AspNetCore.StaticWebAssets.props",
